@@ -30,12 +30,16 @@
 '
 IF UOM = PC, CHECK NA STATUS, RETURN MB IF TRUE, RETURN PRIMARY IF FALSE, ELSE USE PRIMARY (ASSUME CTN)
 'Formatted Verbal Logic
+
 =IF(C1="PC",IF(("VLOOKUP(PIECE)")<>"na",("VLOOKUP(PIECE)"),"VLOOKUP(Primary)"),"VLOOKUP(Primary)")
 'VB Logic Approximate
+
 =IF(C1="PC",IF((VLOOKUP(A1,LocRef!$A$1:$C$999,3,TRUE))<>"na",(VLOOKUP(A1,LocRef!$A$1:$C$999,3,TRUE)),VLOOKUP(A1,LocRef!$A$1:$C$999,2,TRUE)),VLOOKUP(A1,LocRef!$A$1:$C$999,2,TRUE))
 'VB Logic Exact (Test Script)
+
 =IF(C1="PC",IF((VLOOKUP(A1,LocRef!$A$1:$C$999,3,FALSE))<>"na",(VLOOKUP(A1,LocRef!$A$1:$C$999,3,FALSE)),VLOOKUP(A1,LocRef!$A$1:$C$999,2,FALSE)),VLOOKUP(A1,LocRef!$A$1:$C$999,2,FALSE))
 'VB Logic Exact (Crystal's Template)
+
 =IF(J1="PC",IF((VLOOKUP(I1,LocRef!$A$1:$C$999,3,FALSE))<>"na",(VLOOKUP(I1,LocRef!$A$1:$C$999,3,FALSE)),VLOOKUP(I1,LocRef!$A$1:$C$999,2,FALSE)),VLOOKUP(I1,LocRef!$A$1:$C$999,2,FALSE))
 
 '===
